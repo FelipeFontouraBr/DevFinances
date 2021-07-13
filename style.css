@@ -85,25 +85,34 @@ header {
 /* Transaction */
 #data-table {
     width: 100%;
-    border-spacing: 0 0.5rem;
-}
-
-table th {
-    background: white;
-    font-weight: normal;
-    padding: 1rem 2rem;
-    text-align: left;
-    color: #969cb3;    
-}
-
-table td{
-    background: white;
-    
+    border-spacing: 0 0.5rem;    
+    color: #969cb3; 
 }
 
 table thread tr th:first-child,
 table tbody tr td:first-child {
     border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+table thead th {
+    background: white;
+    font-weight: normal;
+    padding: 1rem 2rem;
+    text-align: left;   
+}
+
+table tr{
+    opacity: 0.7;
+}
+
+table tr:hover{
+    opacity: 1;
+}
+
+table tbody td{
+    background: white;
+    padding: 1rem 2rem;
+    font-weight: normal;
 }
 
 /* == FOOTER == */
