@@ -1,6 +1,10 @@
 /* == GLOBAL == */
 :root {
+    /*colors*/
     --dark-blue: #363f5f;
+
+    /*border-radius*/
+    --border-radius: 0.25rem; 
 }
 
 * {
@@ -55,7 +59,7 @@ header {
 .card {
     background: white;
     padding: 1.5rem 2rem;
-    border-radius: 0.25rem;
+    border-radius: var(--border-radius);
 
     margin-bottom: 2rem;
     color: var(--dark-blue)
@@ -95,6 +99,11 @@ table th {
 table td{
     background: white;
     
+}
+
+table thread tr th:first-child,
+table tbody tr td:first-child {
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
 }
 
 /* == FOOTER == */
