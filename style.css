@@ -117,11 +117,17 @@ header {
     color: white;
 }
 
-/* Transaction */
+/* Table */
+#transition {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
 #data-table {
     width: 100%;
     border-spacing: 0 0.5rem;    
-    color: #969cb3; 
+    color: #969cb3;    
 }
 
 table thread tr th:first-child,
