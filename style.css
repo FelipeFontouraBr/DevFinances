@@ -13,6 +13,10 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 93.75%; /* 15px*/ /* 100% é que vale o padrão: 16px*/
+}
+
 body {
     background: #f0f2f5;
     font-family: "Poppins", sans-serif;
@@ -170,3 +174,4 @@ footer {
     color: var(--dark-blue);
     opacity: 0.6;
 }
+
