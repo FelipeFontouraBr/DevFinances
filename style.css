@@ -44,6 +44,21 @@ h2 {
     font-weight: normal;
 }
 
+/* == LINKS && BUTTONS == */
+a {
+    color: #49AA26;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #3dd705;
+}
+
+.button.new {
+    display: inline-block;
+    margin-bottom: .8rem;
+}
+
 /* == HEADER == */
 header {
     background: #2D4A22;
