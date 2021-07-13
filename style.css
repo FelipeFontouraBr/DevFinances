@@ -18,6 +18,10 @@ body {
 /* == TITLES == */
 h2 {
     margin-top: 3.2rem;
+    margin-bottom: 0.8rem;
+    color: #363F5F;
+
+    font-weight: normal;
 }
 
 /* == HEADER == */
