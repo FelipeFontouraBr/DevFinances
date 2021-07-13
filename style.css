@@ -115,6 +115,18 @@ table tbody td{
     font-weight: normal;
 }
 
+td.description {
+    color: var(--dark-blue);
+}
+
+td.income {
+    color: #12a454;
+}
+
+td.expense {
+    color: #e92929;
+}
+
 /* == FOOTER == */
 footer {
     text-align: center;
