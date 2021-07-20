@@ -45,12 +45,14 @@ const Transaction = {
 
 // Pegar as transações do objeto em JavaScript e colocar no HTML
 const DOM = {
+
+    transactionsContainer: document.querySelector('#data-table tbody'),
     
     addTransaction(transaction, index){
-        //console.log(transaction)
         const tr = document.createElement('tr')
         tr.innerHTML = DOM.innerHTMLTransaction(transaction)
-        //console.log(tr.innerHTML)
+
+        DOM.transactionsContainer.appendChild(tr)
     },
 
     innerHTMLTransaction(transaction) {
@@ -69,4 +71,5 @@ const DOM = {
     }
 }
 
-DOM.addTransaction(transations[1])
+DOM.addTransaction(transations[0])
+
