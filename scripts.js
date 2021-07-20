@@ -27,6 +27,12 @@ const transations = [
         description: 'Internet',
         amount: -20000,
         date: '23/07/2021'
+    }, 
+    {
+        id: 4,
+        description: 'App',
+        amount: 20000,
+        date: '23/07/2021'
     },   
     ]
 
@@ -71,5 +77,6 @@ const DOM = {
     }
 }
 
-DOM.addTransaction(transations[0])
-
+transations.forEach(function(transaction) {
+    DOM.addTransaction(transaction)
+})
