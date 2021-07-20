@@ -9,7 +9,7 @@ const Modal = {
 }
 
 // == Object (vai guardar as informações)
-const transitions = [
+const transations = [
     {
         id: 1,
         description: 'Luz',
@@ -45,13 +45,14 @@ const Transaction = {
 
 // Pegar as transações do objeto em JavaScript e colocar no HTML
 const DOM = {
-
+    
     addTransaction(transaction, index){
+        //console.log(transaction)
         const tr = document.createElement('tr')
-        tr.innerHTML = DOM.innerHTMLTransaction()
+        tr.innerHTML = DOM.innerHTMLTransaction(transaction)
     },
 
-    innerHTMLTransaction() {
+    innerHTMLTransaction(transaction) {
         //Montando a máscara do HTML:
         const html = `
         
@@ -66,3 +67,5 @@ const DOM = {
         return html
     }
 }
+
+DOM.addTransaction(transations[0])
