@@ -62,11 +62,12 @@ const DOM = {
     },
 
     innerHTMLTransaction(transaction) {
+        const CSSclass = transaction.amount > 0 ? "income" : "expense"
         //Montando a máscara do HTML:
         const html = `
         
             <td class="description">${transaction.description}</td>
-            <td class="expense">${transaction.amount}</td>
+            <td class="${CSSclass}">${transaction.amount}</td>
             <td class="date">${transaction.date}</td>
             <td>
             <img src="./assets/minus.svg" alt="Remover transação">
