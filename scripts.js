@@ -62,7 +62,11 @@ const DOM = {
     },
 
     innerHTMLTransaction(transaction) {
-        const CSSclass = transaction.amount > 0 ? "income" : "expense"
+        // Criando variaveis
+        const CSSclass = transaction.amount > 0 ? "income" : "expense" //Alteração automatica do status do valor
+
+        // Configuração da moeda:
+        const amount = Utils.formatCurrency(transaction.amount)
         //Montando a máscara do HTML:
         const html = `
         
@@ -75,6 +79,13 @@ const DOM = {
         
         `
         return html
+    }
+}
+
+// Coisas uteis para formatação: exemplo moeda
+const Utils = {
+    formatCurrency(value) {
+        const signal = Number(value) < 0 ? "-" : ""
     }
 }
 
