@@ -40,12 +40,15 @@ const transations = [
 const Transaction = {
     incomes() {
         // Somar as entradas
+        return "cheguei"
     },
     expenses() {
         // Somar as saídas
+        return "aqui"
     },
     total() {
         // Entradas - saídas
+        return "Fontureb"
     }
 }
 
@@ -79,6 +82,13 @@ const DOM = {
         
         `
         return html
+    },
+
+    // == Atualizações de entrada e saída
+    updateBalance() {
+        document.getElementById('incomeDisplay').innerHTML = Transaction.incomes() //Pegando a soma das entradas
+        document.getElementById('expenseDisplay').innerHTML = Transaction.expenses() //Pegando a soma das entradas
+        document.getElementById('totalDisplay').innerHTML = Transaction.total() //Pegando a soma das entradas
     }
 }
 
@@ -98,6 +108,10 @@ const Utils = {
     }
 }
 
+// Prenchimento automatico dos dados
 transations.forEach(function(transaction) {
     DOM.addTransaction(transaction)
 })
+
+// Chamando o updateBalance:
+DOM.updateBalance()
