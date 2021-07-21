@@ -71,7 +71,7 @@ const DOM = {
         const html = `
         
             <td class="description">${transaction.description}</td>
-            <td class="${CSSclass}">${transaction.amount}</td>
+            <td class="${CSSclass}">${amount}</td>
             <td class="date">${transaction.date}</td>
             <td>
             <img src="./assets/minus.svg" alt="Remover transação">
@@ -85,7 +85,16 @@ const DOM = {
 // Coisas uteis para formatação: exemplo moeda
 const Utils = {
     formatCurrency(value) {
-        const signal = Number(value) < 0 ? "-" : ""
+        const signal = Number(value) < 0 ? "-" : "" //guardando o sinal positivo ou negativo
+
+        value = String(value).replace(/\D/g, "") //Replace Troca um outra coisa
+
+        value = Number(value) / 100 // Atualização do numero
+        value = value.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        })// Transformando o numero em moeda
+        return signal + value
     }
 }
 
