@@ -9,7 +9,7 @@ const Modal = {
 }
 
 // == Object (vai guardar as informações)
-const transations = [
+const transactions = [
     {
         id: 1,
         description: 'Luz',
@@ -31,23 +31,38 @@ const transations = [
     {
         id: 4,
         description: 'App',
-        amount: 20000,
+        amount: 200000,
         date: '23/07/2021'
     },   
     ]
 
 // == Transaction ==
 const Transaction = {
+
+    // Somar as entradas
     incomes() {
-        // Somar as entradas
-        return "cheguei"
+        let income = 0;
+        // Pegar todas as transações
+        // Para cada transação,
+        transactions.forEach((transaction) => {
+            if(transaction.amount > 0) { // se ela for maior que zero 
+               income = income + transaction.amount // somar a uma variavel e retornar a variavel
+            } 
+        })
+         
+        
+        return income
     },
+
+    // Somar as saídas
     expenses() {
-        // Somar as saídas
+        
         return "aqui"
     },
+
+    // Entradas - saídas
     total() {
-        // Entradas - saídas
+        
         return "Fontureb"
     }
 }
@@ -109,7 +124,7 @@ const Utils = {
 }
 
 // Prenchimento automatico dos dados
-transations.forEach(function(transaction) {
+transactions.forEach(function(transaction) {
     DOM.addTransaction(transaction)
 })
 
