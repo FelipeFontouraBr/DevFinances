@@ -103,11 +103,11 @@ const DOM = {
         return html
     },
 
-    // == Atualizações de entrada e saída
+    // == Atualizações na tela de entrada e saída
     updateBalance() {
-        document.getElementById('incomeDisplay').innerHTML = Transaction.incomes() //Pegando a soma das entradas
-        document.getElementById('expenseDisplay').innerHTML = Transaction.expenses() //Pegando a soma das entradas
-        document.getElementById('totalDisplay').innerHTML = Transaction.total() //Pegando a soma das entradas
+        document.getElementById('incomeDisplay').innerHTML = Utils.formatCurrency(Transaction.incomes()) //Pegando a soma das entradas
+        document.getElementById('expenseDisplay').innerHTML = Utils.formatCurrency(Transaction.expenses()) //Pegando a soma das entradas
+        document.getElementById('totalDisplay').innerHTML = Utils.formatCurrency(Transaction.total()) //Pegando a soma das entradas
     }
 }
 
