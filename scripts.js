@@ -67,8 +67,7 @@ const Transaction = {
 
     // Entradas - saídas
     total() {
-        
-        return "Fontureb"
+        return Transaction.incomes() + Transaction.expenses()
     }
 }
 
