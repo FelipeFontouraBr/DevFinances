@@ -39,12 +39,18 @@ const transactions = [
 // == Transaction ==
 const Transaction = {
 
+    all: transactions, //atalho pegando todos dados das transações
+    add(transaction) {
+        Transaction.all.push(transaction)
+        App.reload() //reinicia a aplicação
+    },
+
     // Somar as entradas
     incomes() {
         let income = 0;
         // Pegar todas as transações
         // Para cada transação,
-        transactions.forEach((transaction) => {
+        Transaction.all.forEach((transaction) => {
             if(transaction.amount > 0) { // se ela for maior que zero 
                income = income + transaction.amount // somar a uma variavel e retornar a variavel
             } 
@@ -57,7 +63,7 @@ const Transaction = {
         let expense = 0;
         // Pegar todas as transações
         // Para cada transação,
-        transactions.forEach((transaction) => {
+        Transaction.all.forEach((transaction) => {
             if(transaction.amount < 0) { // se ela for menor que zero 
                expense += transaction.amount // somar a uma variavel e retornar a variavel
             } 
@@ -127,10 +133,22 @@ const Utils = {
     }
 }
 
-// Prenchimento automatico dos dados
-transactions.forEach(function(transaction) {
-    DOM.addTransaction(transaction)
-})
+// == APLICAÇÃO ==
+const App = {
+    init() { //inicia a aplicação
+        
+    // Prenchimento automatico dos dados
+    Transaction.all.forEach(transaction => {
+        DOM.addTransaction(transaction)
+    })
 
-// Chamando o updateBalance:
-DOM.updateBalance()
+    // Chamando o updateBalance:
+    DOM.updateBalance()
+
+    },
+    reload() { //recarrega a aplicação
+        App.init()
+    },
+}
+
+App.init() // Iniciou a aplicação
