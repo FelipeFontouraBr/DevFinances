@@ -114,6 +114,11 @@ const DOM = {
         document.getElementById('incomeDisplay').innerHTML = Utils.formatCurrency(Transaction.incomes()) //Pegando a soma das entradas
         document.getElementById('expenseDisplay').innerHTML = Utils.formatCurrency(Transaction.expenses()) //Pegando a soma das entradas
         document.getElementById('totalDisplay').innerHTML = Utils.formatCurrency(Transaction.total()) //Pegando a soma das entradas
+    }, 
+
+    // Limpar a aplicação toda vez que reinicia
+    clearTransactions() {
+        DOM.transactionsContainer.innerHTML = ""
     }
 }
 
@@ -147,6 +152,7 @@ const App = {
 
     },
     reload() { //recarrega a aplicação
+        DOM.clearTransactions()
         App.init()
     },
 }
