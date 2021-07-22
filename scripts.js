@@ -48,16 +48,21 @@ const Transaction = {
             if(transaction.amount > 0) { // se ela for maior que zero 
                income = income + transaction.amount // somar a uma variavel e retornar a variavel
             } 
-        })
-         
-        
-        return income
+        })   
+        return income;
     },
 
     // Somar as saídas
     expenses() {
-        
-        return "aqui"
+        let expense = 0;
+        // Pegar todas as transações
+        // Para cada transação,
+        transactions.forEach((transaction) => {
+            if(transaction.amount < 0) { // se ela for menor que zero 
+               expense += transaction.amount // somar a uma variavel e retornar a variavel
+            } 
+        })
+        return expense;
     },
 
     // Entradas - saídas
