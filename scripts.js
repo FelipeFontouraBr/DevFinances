@@ -8,39 +8,40 @@ const Modal = {
     }
 }
 
-// == Object (vai guardar as informações)
-const transactions = [
-    {
-        description: 'Luz',
-        amount: -50000,
-        date: '23/07/2021'
-    },
-    {
-        description: 'Criação de website',
-        amount: 500000,
-        date: '23/07/2021'
-    },
-    {
-        description: 'Internet',
-        amount: -20000,
-        date: '23/07/2021'
-    }, 
-    {
-        description: 'App',
-        amount: 200000,
-        date: '23/07/2021'
-    },   
-    ]
-
 // == Transaction ==
 const Transaction = {
+    
+    // == Object (vai guardar as informações)
+    all: [
+        {
+            description: 'Luz',
+            amount: -50000,
+            date: '23/07/2021'
+        },
+        {
+            description: 'Criação de website',
+            amount: 500000,
+            date: '23/07/2021'
+        },
+        {
+            description: 'Internet',
+            amount: -20000,
+            date: '23/07/2021'
+        }, 
+        {
+            description: 'App',
+            amount: 200000,
+            date: '23/07/2021'
+        },  
+    ],
 
     // Adicionando
-    all: transactions, //atalho pegando todos dados das transações
     add(transaction) {
         Transaction.all.push(transaction)
         App.reload() //reinicia a aplicação
     },
+
+    // Removendo
     remove(index){
         Transaction.all.splice(index, 1)
 
@@ -137,6 +138,55 @@ const Utils = {
             currency: "BRL"
         })// Transformando o numero em moeda
         return signal + value
+    }
+}
+
+// == Formulário ==
+const Form = {
+
+    // Pegandos os campos(elementos):
+    description: document.querySelector('input#description'),
+    amount: document.querySelector('input#amount'),
+    date: document.querySelector('input#date'),
+
+    // Pegando os valores destes campos:
+    getValues() {
+        return {
+            description: Form.description.value, 
+            amount: Form.amount.value,
+            date: Form.date.value
+        }
+    },
+
+    // Formatar os dados:
+    formatData() {
+        console.log('Formatar os dados tio')
+    },
+
+    // Verificar os campos, validar os campos
+    validateFields() {
+        const { description, amount, date } = Form.getValues() //Desustrurando o objeto
+
+        console.log(description)
+    },
+
+    submit(event) {
+        event.preventDefault() // Cancelando o comportamento padrão do envio de dados do formulario
+
+        //Funcionalidades:
+        // Verificar se todas as informações foram preenchidas
+        Form.validateFields()
+
+        // Formatar os dados para salvar
+        // Form.formatData()
+
+        // Salvar os dados
+
+        // Apagar os dados do formulario
+
+        // Fechar o modal
+
+        // Atualizar a aplicação
     }
 }
 
