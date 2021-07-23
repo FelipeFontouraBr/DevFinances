@@ -11,25 +11,21 @@ const Modal = {
 // == Object (vai guardar as informações)
 const transactions = [
     {
-        id: 1,
         description: 'Luz',
         amount: -50000,
         date: '23/07/2021'
     },
     {
-        id: 2,
         description: 'Criação de website',
         amount: 500000,
         date: '23/07/2021'
     },
     {
-        id: 3,
         description: 'Internet',
         amount: -20000,
         date: '23/07/2021'
     }, 
     {
-        id: 4,
         description: 'App',
         amount: 200000,
         date: '23/07/2021'
@@ -39,10 +35,16 @@ const transactions = [
 // == Transaction ==
 const Transaction = {
 
+    // Adicionando
     all: transactions, //atalho pegando todos dados das transações
     add(transaction) {
         Transaction.all.push(transaction)
         App.reload() //reinicia a aplicação
+    },
+    remove(index){
+        Transaction.all.splice(index, 1)
+
+        App.reload()
     },
 
     // Somar as entradas
