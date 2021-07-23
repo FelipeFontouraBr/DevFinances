@@ -166,8 +166,11 @@ const Form = {
     // Verificar os campos, validar os campos
     validateFields() {
         const { description, amount, date } = Form.getValues() //Desustrurando o objeto
+       // console.log(description)
 
-        console.log(description)
+       if(description.trim() === "" || amount.trim() === "" || date.trim() === "") { // trim: limpeza da sua string
+        throw new Error("Por favor, preencha todos os campos")// Throw é jogar para fora (cuspir), criando um novo objeto de erro com uma mensagem adicionada
+       } 
     },
 
     submit(event) {
