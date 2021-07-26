@@ -130,6 +130,14 @@ const Utils = {
     
     formatAmount(value) {
         value = Number(value) * 100//transformando em numero e multiplicando por 100
+
+        return value
+    },
+
+    formatDate(date) {
+        const splittedDate = date.split('-');
+
+        return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`//Retornando com a formatação correta (dia/mes/ano)
     },
 
     formatCurrency(value) {
@@ -178,10 +186,13 @@ const Form = {
        } 
     },
 
+    // Formatação dos valores e data
     formatValues() {
         let { description, amount, date } = Form.getValues()
 
         amount = Utils.formatAmount(amount)
+
+        date = Utils.formatDate(date)
     },
 
     submit(event) {
@@ -192,7 +203,7 @@ const Form = {
 
             //Funcionalidades:
             // Verificar se todas as informações foram preenchidas
-            Form.validateFields()
+            // Form.validateFields()
 
             // Formatar os dados para salvar
             Form.formatValues()
