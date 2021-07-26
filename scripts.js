@@ -230,6 +230,7 @@ const Form = {
             Modal.close()
 
             // Atualizar a aplicação
+            App.reload()
 
         } catch(error) { // Responsável por capturar o erro
             alert(error.message);
