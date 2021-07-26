@@ -205,7 +205,7 @@ const Form = {
         Form.description.value = ""
         Form.amount.value = ""
         Form.date.value = ""
-    }
+    },
 
     submit(event) {
         event.preventDefault() // Cancelando o comportamento padrão do envio de dados do formulario
@@ -227,6 +227,7 @@ const Form = {
             Form.clearFields()
 
             // Fechar o modal
+            Modal.close()
 
             // Atualizar a aplicação
 
