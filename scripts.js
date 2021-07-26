@@ -201,6 +201,12 @@ const Form = {
         }
     },
 
+    clearFields() {
+        Form.description.value = ""
+        Form.amount.value = ""
+        Form.date.value = ""
+    }
+
     submit(event) {
         event.preventDefault() // Cancelando o comportamento padrão do envio de dados do formulario
 
@@ -218,6 +224,7 @@ const Form = {
             Transaction.add(transaction)
 
             // Apagar os dados do formulario
+            Form.clearFields()
 
             // Fechar o modal
 
