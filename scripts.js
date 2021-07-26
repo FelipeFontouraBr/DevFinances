@@ -127,6 +127,11 @@ const DOM = {
 
 // Coisas uteis para formatação: exemplo moeda
 const Utils = {
+    
+    formatAmount(value) {
+        value = Number(value) * 100//transformando em numero e multiplicando por 100
+    },
+
     formatCurrency(value) {
         const signal = Number(value) < 0 ? "-" : "" //guardando o sinal positivo ou negativo
 
@@ -173,23 +178,36 @@ const Form = {
        } 
     },
 
+    formatValues() {
+        let { description, amount, date } = Form.getValues()
+
+        amount = Utils.formatAmount(amount)
+    },
+
     submit(event) {
         event.preventDefault() // Cancelando o comportamento padrão do envio de dados do formulario
 
-        //Funcionalidades:
-        // Verificar se todas as informações foram preenchidas
-        Form.validateFields()
+        // Irá tentar fazer o passo a passo (dentro de try), se um desse passo falhar, devolve o erro.
+        try {
 
-        // Formatar os dados para salvar
-        // Form.formatData()
+            //Funcionalidades:
+            // Verificar se todas as informações foram preenchidas
+            Form.validateFields()
 
-        // Salvar os dados
+            // Formatar os dados para salvar
+            Form.formatValues()
 
-        // Apagar os dados do formulario
+            // Salvar os dados
 
-        // Fechar o modal
+            // Apagar os dados do formulario
 
-        // Atualizar a aplicação
+            // Fechar o modal
+
+            // Atualizar a aplicação
+
+        } catch(error) { // Responsável por capturar o erro
+            alert(error.message);
+        }
     }
 }
 
