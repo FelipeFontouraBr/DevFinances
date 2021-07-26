@@ -192,7 +192,13 @@ const Form = {
 
         amount = Utils.formatAmount(amount)
 
-        date = Utils.formatDate(date)
+        date = Utils.formatDate(date)   
+
+        return {
+            description: description,
+            amount: amount,
+            date: date
+        }
     },
 
     submit(event) {
@@ -203,12 +209,13 @@ const Form = {
 
             //Funcionalidades:
             // Verificar se todas as informações foram preenchidas
-            // Form.validateFields()
+            Form.validateFields()
 
             // Formatar os dados para salvar
-            Form.formatValues()
+            const transaction = Form.formatValues()
 
             // Salvar os dados
+            Transaction.add(transaction)
 
             // Apagar os dados do formulario
 
