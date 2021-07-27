@@ -8,7 +8,7 @@ const Modal = {
     }
 }
 
-// == Transaction ==
+// == TRANSACTION ==
 const Transaction = {
     
     // == Object (vai guardar as informações)
@@ -80,19 +80,20 @@ const Transaction = {
     }
 }
 
-// Pegar as transações do objeto em JavaScript e colocar no HTML
+// == DOM == Pegar as transações do objeto em JavaScript e colocar no HTML
 const DOM = {
 
     transactionsContainer: document.querySelector('#data-table tbody'),
     
     addTransaction(transaction, index){
         const tr = document.createElement('tr')
-        tr.innerHTML = DOM.innerHTMLTransaction(transaction)
+        tr.innerHTML = DOM.innerHTMLTransaction(transaction, index)
+        tr.dataset.index = index //Index recebe a posição do array
 
         DOM.transactionsContainer.appendChild(tr)
     },
 
-    innerHTMLTransaction(transaction) {
+    innerHTMLTransaction(transaction, index) {
         // Criando variaveis
         const CSSclass = transaction.amount > 0 ? "income" : "expense" //Alteração automatica do status do valor
 
@@ -105,7 +106,7 @@ const DOM = {
             <td class="${CSSclass}">${amount}</td>
             <td class="date">${transaction.date}</td>
             <td>
-            <img src="./assets/minus.svg" alt="Remover transação">
+            <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Remover transação">
             </td>
         
         `
@@ -154,7 +155,7 @@ const Utils = {
     }
 }
 
-// == Formulário ==
+// == FORMULARIO ==
 const Form = {
 
     // Pegandos os campos(elementos):
@@ -228,7 +229,7 @@ const Form = {
 
             // Fechar o modal
             Modal.close()
-            
+
         } catch(error) { // Responsável por capturar o erro
             alert(error.message);
         }
@@ -240,8 +241,8 @@ const App = {
     init() { //inicia a aplicação
         
     // Prenchimento automatico dos dados
-    Transaction.all.forEach(transaction => {
-        DOM.addTransaction(transaction)
+    Transaction.all.forEach((transaction, index) => {
+        DOM.addTransaction(transaction, index)
     })
 
     // Chamando o updateBalance:
