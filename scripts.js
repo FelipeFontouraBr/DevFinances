@@ -8,32 +8,51 @@ const Modal = {
     }
 }
 
+// == LOCAL STORAGE ==
+// Vamos sempre guardar chave e valor
+const Storage = {
+    // Pegar as informações:
+    // Na hora de pegar, o dado esta como string e precisa transformar em array
+    get() {
+        return JSON.parse(localStorage.getItem('dev.finances:transactions')) || [] //parse vai transformar a string em array // || ou devolve um array vazio
+    },
+
+    // Guardar as informações, no nosso caso, as informações de transaction:
+    // Local Storage guarda string, para transformar ARRAY em STRING, utiliza o JSON
+    set(transactions) {
+        localStorage.setItem("dev.finances:transactions", JSON.stringify(transactions))
+    }
+}
+
 // == TRANSACTION ==
 const Transaction = {
     
     // == Object (vai guardar as informações)
-    all: [
-        {
-            description: 'Luz',
-            amount: -50000,
-            date: '23/07/2021'
-        },
-        {
-            description: 'Criação de website',
-            amount: 500000,
-            date: '23/07/2021'
-        },
-        {
-            description: 'Internet',
-            amount: -20000,
-            date: '23/07/2021'
-        }, 
-        {
-            description: 'App',
-            amount: 200000,
-            date: '23/07/2021'
-        },  
-    ],
+    // Tiramos para salvar no localstore
+    // all: [
+    //     {
+    //         description: 'Luz',
+    //         amount: -50000,
+    //         date: '23/07/2021'
+    //     },
+    //     {
+    //         description: 'Criação de website',
+    //         amount: 500000,
+    //         date: '23/07/2021'
+    //     },
+    //     {
+    //         description: 'Internet',
+    //         amount: -20000,
+    //         date: '23/07/2021'
+    //     }, 
+    //     {
+    //         description: 'App',
+    //         amount: 200000,
+    //         date: '23/07/2021'
+    //     },  
+    // ],
+
+    all: Storage.get(),
 
     // Adicionando
     add(transaction) {
@@ -233,22 +252,6 @@ const Form = {
         } catch(error) { // Responsável por capturar o erro
             alert(error.message);
         }
-    }
-}
-
-// == LOCAL STORAGE ==
-// Vamos sempre guardar chave e valor
-const Storage = {
-    // Pegar as informações:
-    // Na hora de pegar, o dado esta como string e precisa transformar em array
-    get() {
-        return JSON.parse(localStorage.getItem('dev.finances:transactions')) || [] //parse vai transformar a string em array // || ou devolve um array vazio
-    },
-
-    // Guardar as informações, no nosso caso, as informações de transaction:
-    // Local Storage guarda string, para transformar ARRAY em STRING, utiliza o JSON
-    set(transactions) {
-        localStorage.setItem("dev.finances:transactions", JSON.stringify(transactions))
     }
 }
 
