@@ -14,7 +14,7 @@ const Storage = {
     // Pegar as informações:
     // Na hora de pegar, o dado esta como string e precisa transformar em array
     get() {
-        return JSON.parse(localStorage.getItem('dev.finances:transactions')) || [] //parse vai transformar a string em array // || ou devolve um array vazio
+        return JSON.parse(localStorage.getItem("dev.finances:transactions")) || [] //parse vai transformar a string em array // || ou devolve um array vazio
     },
 
     // Guardar as informações, no nosso caso, as informações de transaction:
@@ -267,6 +267,9 @@ const App = {
     // Chamando o updateBalance:
     DOM.updateBalance()
 
+    // Dados salvos no Storage (chamando):
+    Storage.set(Transaction.all)
+    
     },
     reload() { //recarrega a aplicação
         DOM.clearTransactions()
